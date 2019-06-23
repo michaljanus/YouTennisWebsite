@@ -1,0 +1,25 @@
+@import "../../../styles.scss";
+
+.jumbo {
+    background: linear-gradient(90deg, $color1, $color2, $color3);
+    color: #FFFFFF;
+    margin-bottom: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.page-title {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+nav {
+    min-height: 5rem;;
+}
+
+nav form input, nav form button {
+    height: 2.2rem;
+}
+nav form button {
+    padding: 0 0.6rem;
+}

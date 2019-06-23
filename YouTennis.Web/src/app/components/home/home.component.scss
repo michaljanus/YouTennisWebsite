@@ -1,0 +1,46 @@
+// @import "../../../styles.scss";
+@import "../../../styles.scss";
+
+.card div {
+    color: rgb(255, 255, 255);
+}
+
+.card {
+    display: block;
+}
+
+.card-body {
+    justify-content: center;
+    min-height: 15rem;
+}
+
+.card-text {
+    text-align: center;
+    
+}
+
+.card__dark {
+    background:  $color3;
+}
+
+.card__light {
+    background:  $color2;
+}
+
+.card-text i {
+    display: block;
+    text-align: center;
+}
+
+.card-text p {
+    font-size: 1.8rem;
+    padding-top: 3rem;
+}
+
+.carousel-inner {
+    max-height: 25rem;
+}
+
+.card-text2 div {
+    overflow: hidden;
+}

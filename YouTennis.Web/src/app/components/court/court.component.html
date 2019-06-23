@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center"><button type="d-flex justify-content-center button" class="btn btn-light row"
+    routerLink="/clubs/{{clubId}}/courts/new" [style.visibility]="isAdmin() ? 'visible' : 'hidden'">Add new court</button></div>
+
+<div class="row">
+  <ng-container *ngFor="let item of courts | async; let i=index">
+    <div *ngIf="i % 3 == 0" class="w-100"></div>
+    <div class="col-md-4 my-3">
+      <div class="card bg-light">
+        <div class="card-body card__light rounded">
+          <div class="card-text2">
+            <div class="d-flex justify-content-center my-0"><img
+                src="https://cdn.pixabay.com/photo/2015/12/08/00/34/tennis-court-1081845_960_720.jpg" alt="court"></div>
+            <div class="d-flex justify-content-center">
+              <p>{{item.street}}</p> <pre> </pre> <p>{{item.streetNumber}}</p>
+            </div>
+            <div class="d-flex justify-content-center">
+              <p>{{item.zipCode}}</p>
+              <pre> </pre>
+              <p>{{item.city}}</p>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <p>{{item.hourPrice}}</p> <pre> </pre> <p>PLN/h</p>
+            </div>
+            <div class="d-flex justify-content-center"><button type="d-flex justify-content-center button"
+                class="btn btn-light row" routerLink="{{item.id}}/book" [disabled]="!isLogged">Book</button>
+            </div>
+            <div class="d-flex justify-content-center" ><button [style.display]="isAdmin() ? 'inherit' : 'none'"  type="d-flex justify-content-center button"
+              class="btn btn-danger row" (click)="delete(item)" [disabled]="!isLogged">Delete</button>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<!--class="btn btn-light row" routerLink="{{clubId}}/courts/{{item.id}}/book-court" [disabled]="!isLogged">Book</button>-->

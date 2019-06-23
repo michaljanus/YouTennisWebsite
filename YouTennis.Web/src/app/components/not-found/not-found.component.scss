@@ -1,0 +1,17 @@
+@import "../../../styles.scss";
+
+.jumbo {
+    background: linear-gradient(90deg, $color1, $color2, $color3);
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.jumbo div {
+    font-size: 4rem;
+    font-weight: bold;
+    min-height: 15rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

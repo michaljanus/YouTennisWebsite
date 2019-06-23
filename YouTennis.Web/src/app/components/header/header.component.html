@@ -1,0 +1,39 @@
+<section class="jumbotron jumbotron-fluid text-center jumbo">
+  <div class="page-title">YouTennis</div>
+</section>
+
+<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+    aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample04">
+    <ul class="navbar-nav mr-auto ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/"><i class="fas fa-home"></i><span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/clubs">Clubs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/bookings">Bookings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logClick()">{{getLoginString()}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/account/register">Sign up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>

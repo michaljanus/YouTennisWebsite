@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-md-6 mx-auto my-5">
+    <form #f="ngForm" novalidate [formGroup]="newForm" (ngSubmit)="register()">
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input formControlName="userName"   class="form-control" placeholder="User name" type="text">
+      </div>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input formControlName="firstName"  class="form-control" placeholder="First name" type="text">
+      </div>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        </div>
+        <input formControlName="lastName"  class="form-control" placeholder="Last name" type="text">
+      </div>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+        </div>
+        <input formControlName="email" id="email" type="text" required name="email" class="form-control" placeholder="Email" tmFocus validateEmail>
+        <!-- <small [hidden]="email.valid || (email.pristine && !submitted)" class="text-danger">Please enter a valid
+          email</small> -->
+      </div>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input formControlName="password" type="password" class="form-control" id="password" required name="password" placeholder="Password"
+          >
+      </div>
+
+      <div class="form-group input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        </div>
+        <input formControlName="confirmPassword" type="password" class="form-control" id="repeat-password" required name="repeat-password"
+          placeholder="Repeat password" >
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="f.invalid || isRequesting">Register</button>
+      </div>
+
+      <div *ngIf="errors" class="alert alert-danger" role="alert">
+        <strong>Wrong data</strong>
+      </div>
+
+      <p class="text-center">Have an account? <a href="/login">Log In</a></p>
+    </form>
+  </div>
+</div>
