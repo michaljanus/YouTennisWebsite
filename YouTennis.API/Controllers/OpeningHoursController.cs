@@ -22,6 +22,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await _openingHoursService.GetAll();
+
             return Ok(result);
         }
 
@@ -30,6 +31,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Add(OpeningHours model)
         {
             var newItemId = await _openingHoursService.Add(model);
+
             return Ok(newItemId);
         }
 
@@ -38,6 +40,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await _openingHoursService.Delete(id);
+
             return Ok();
         }
 
@@ -46,6 +49,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Get(int id)
         {
             var result = await _openingHoursService.Get(id);
+
             return Ok(result);
         }
 
@@ -54,6 +58,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Update(OpeningHours model)
         {
             var updatedItem = await _openingHoursService.Update(model);
+
             return Ok(updatedItem);
         }
     }

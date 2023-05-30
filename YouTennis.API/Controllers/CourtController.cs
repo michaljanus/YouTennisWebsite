@@ -25,6 +25,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await _courtService.GetAll();
+
             return Ok(result);
         }
 
@@ -45,8 +46,6 @@ namespace YouTennis.API.Controllers
                 new OpeningHours { CourtId = newItemId, DayId = 6, OpeningTime = 10, ClosingTime = 20 },
             };
 
-             //openingHours.ForEach(async x => await _openingHoursService.Add(x));
-
             foreach(var item in openingHours)
             {
                 await _openingHoursService.Add(item);
@@ -60,6 +59,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await _courtService.Delete(id);
+
             return Ok();
         }
 
@@ -68,6 +68,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Get(int id)
         {
             var result = await _courtService.Get(id);
+
             return Ok(result);
         }
 
@@ -76,13 +77,16 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Update(Court model)
         {
             var updatedItem = await _courtService.Update(model);
+
             return Ok(updatedItem);
         }
+
         [AllowAnonymous]
         [Route("GetByClubId/{clubId}")]
         public async Task<IActionResult> GetByClubId(int clubId)
         {
             var result = await _courtService.GetByClubId(clubId);
+
             return Ok(result);
         }
     }

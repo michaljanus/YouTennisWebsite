@@ -19,6 +19,7 @@ namespace YouTennis.Core.Respository
         {
             DbSet.Add(model);
             Context.SaveChanges();
+
             return model.Id;
         }
 
@@ -42,6 +43,7 @@ namespace YouTennis.Core.Respository
         {
             DbSet.Update(model);
             Context.SaveChanges();
+
             return model;
         }
     }

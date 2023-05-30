@@ -9,6 +9,7 @@ namespace YouTennis.API.Helper
         {
             var config = new EmailConfig();
             configuration.Bind("EmailConfig", config);
+
             return config;
         }
     }

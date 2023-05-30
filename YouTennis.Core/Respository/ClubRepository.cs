@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using YouTennis.Base.Model;
+﻿using YouTennis.Base.Model;
 using YouTennis.Base.Repository;
 using YouTennis.Core.Context;
 

@@ -18,13 +18,11 @@ namespace YouTennis.API.Controllers
     {
         private readonly IBookingService _bookingService;
         private readonly IUserService _userService;
-        private readonly ICourtService _courtService;
 
-        public BookingController(IBookingService bookingService, IUserService userService, ICourtService courtService)
+        public BookingController(IBookingService bookingService, IUserService userService)
         {
             _bookingService = bookingService;
             _userService = userService;
-            _courtService = courtService;
         }
 
         [Route("GetSlots/{courtId}/{date}")]
@@ -32,14 +30,15 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> GetSlots(int courtId, DateTime date)
         {
             var slots = await _bookingService.GetAvaiableSlot(courtId, date);
+
             return Ok(slots);
         }
 
         [Route("Book/{courtId}/{date}")]
         public async Task<IActionResult> Book(int courtId, DateTime date)
         {
-            //var appUser = await _userService.GetUser(this.User);
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             var appUser = await _userService.GetById(userId);
 
             var booking = new Booking
@@ -62,11 +61,13 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> GetMyBookings()
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             var appUser = await _userService.GetById(userId);
 
             var bookings = await _bookingService.GetBookingsForUser(appUser);
 
             var result = new List<BookingViewModel>();
+
             foreach(var booking in bookings)
             {
                 result.Add(new BookingViewModel
@@ -88,7 +89,9 @@ namespace YouTennis.API.Controllers
         {
             var item = await _bookingService.Get(id);
             if (item is null) throw new NotFoundException();
+
             await _bookingService.Delete(item);
+
             return Ok();
         }
     }

@@ -36,7 +36,7 @@ namespace YouTennis.API.Controllers
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var appUser = await _userService.GetById(userId);
 
-            var isAdmin = appUser.UserName == "admin"; //TODO add roles
+            var isAdmin = appUser.UserName == "admin";
             return isAdmin;
         }
 
@@ -72,8 +72,6 @@ namespace YouTennis.API.Controllers
             }
 
             return BadRequest(result.Errors);
-
-
         }
     }
 }

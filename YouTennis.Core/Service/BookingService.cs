@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using YouTennis.Base.Model;
 using YouTennis.Base.Repository;
@@ -35,7 +34,7 @@ namespace YouTennis.Core.Service
             int hours = openingHours.ClosingTime - openingHours.OpeningTime;
             var slots = new List<Slot>();
 
-            for(int i = openingHours.OpeningTime; i < openingHours.ClosingTime; i++)
+            for (int i = openingHours.OpeningTime; i < openingHours.ClosingTime; i++)
             {
                 var slot = new Slot
                 {
@@ -46,6 +45,7 @@ namespace YouTennis.Core.Service
                 if (bookings.Any(x => x.BookingDate.Hour == i)) slot.IsAvailable = false;
                 slots.Add(slot);
             }
+
             return slots;
         }
 

@@ -30,11 +30,8 @@ namespace YouTennis.Core.Identity
 
         public static IEnumerable<Client> GetClients()
         {
-            // client credentials client
             return new List<Client>
             {
-                
-                // resource owner password grant client
                 new Client
                 {
                     ClientId = _clientId,

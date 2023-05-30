@@ -1,28 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using YouTennis.API.Helper;
 using YouTennis.API.Middleware;
 using YouTennis.Base.Model.Helpers;
-using YouTennis.Base.Repository;
-using YouTennis.Base.Service;
 using YouTennis.Core.Context;
 using YouTennis.Core.Identity;
-using YouTennis.Core.Respository;
-using YouTennis.Core.Service;
 
 namespace YouTennis.API
 {
@@ -35,14 +25,13 @@ namespace YouTennis.API
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<ApiContext>(
-                options => options.UseMySql(Configuration.GetConnectionString("Database"), // replace with your Connection String
+                options => options.UseMySql(Configuration.GetConnectionString("Database"),
                     mySqlOptions =>
                     {
-                        mySqlOptions.ServerVersion(new Version(5, 7, 17), ServerType.MySql); // replace with your Server Version and Type
+                        mySqlOptions.ServerVersion(new Version(5, 7, 17), ServerType.MySql);
                     }
             ));
 
@@ -74,12 +63,8 @@ namespace YouTennis.API
             })
                 .AddJwtBearer(options =>
                 {
-                    // base-address of your identityserver
                     options.Authority = Configuration["APIUrl"];
-
-                    // name of the API resource
                     options.Audience = "YouTennis";
-
                     options.RequireHttpsMetadata = false;
                 });
 
@@ -96,7 +81,6 @@ namespace YouTennis.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

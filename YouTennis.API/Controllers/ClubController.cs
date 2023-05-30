@@ -23,6 +23,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> GetAll()
         {
             var result = await _clubService.GetAll();
+
             return Ok(result);
         }
 
@@ -31,6 +32,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Add(Club model)
         {
             var newItemId = await _clubService.Add(model);
+
             return Ok(newItemId);
         }
 
@@ -39,6 +41,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await _clubService.Delete(id);
+
             return Ok();
         }
 
@@ -47,6 +50,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Get(int id)
         {
             var result = await _clubService.Get(id);
+
             return Ok(result);
         }
 
@@ -55,6 +59,7 @@ namespace YouTennis.API.Controllers
         public async Task<IActionResult> Update(Club model)
         {
             var updatedItem = await _clubService.Update(model);
+
             return Ok(updatedItem);
         }
     }
