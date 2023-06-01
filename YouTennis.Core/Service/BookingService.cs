@@ -56,7 +56,7 @@ namespace YouTennis.Core.Service
             var openingHours = await _openingHoursRepository.GetByCourtIdForDate(courtId, (int)date.DayOfWeek);
             if (date.Hour < openingHours.OpeningTime || date.Hour > openingHours.ClosingTime) result = false;
 
-            var booking = await _bookingRepository.GetBookingForSpecificDate(courtId, date); //Task.WhenAll
+            var booking = await _bookingRepository.GetBookingForSpecificDate(courtId, date);
             if (!(booking is null)) result = false;
 
             return result;
