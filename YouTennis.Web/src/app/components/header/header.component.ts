@@ -10,10 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {
-  //   this.userService.authNavStatusSource.subscribe(() => {
-  //     this.ngOnInit();
-  //         });
-  //  }
+
   }
 
   ngOnInit() {

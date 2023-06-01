@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
           result => {
             if (result) {
               this.router.navigate(['/']).then(() => {
-                //window.location.reload();
               });
             }
           },

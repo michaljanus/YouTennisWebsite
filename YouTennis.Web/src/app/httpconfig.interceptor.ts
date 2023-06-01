@@ -32,7 +32,6 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         }
         else {
             request = request.clone({ headers: request.headers.delete(InterceptorSkipHeader) });
-            // request.headers.delete("x-skip-interceptor");
         }
 
         return next.handle(request).pipe(

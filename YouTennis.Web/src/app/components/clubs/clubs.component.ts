@@ -36,8 +36,4 @@ export class ClubsComponent implements OnInit {
       this.ngOnInit();
     });
   }
-/*
-  public getCourtRoute(club: Club): string {
-    return `clubs/:${club.id}/courts`;
-  }*/
 }

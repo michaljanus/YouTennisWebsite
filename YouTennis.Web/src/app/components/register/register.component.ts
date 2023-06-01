@@ -21,8 +21,6 @@ export class RegisterComponent implements OnInit {
 
   get f() { return this.newForm.controls; }
 
-  //credentials: Credentials = { userName: '', userFirstName: '', userLastName: '', email: '', password: '', confirmPassword: '' };
-
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit() {

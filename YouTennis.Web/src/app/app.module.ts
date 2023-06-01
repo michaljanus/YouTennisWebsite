@@ -80,20 +80,18 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: true }
     ),
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     MatNativeDateModule,
     ReactiveFormsModule,
     DemoMaterialModule,
-    //FontAwesomeModule
     NgbModule
   ],
   providers: [
